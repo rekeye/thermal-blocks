@@ -41,10 +41,10 @@ Overall complexity is `O(n log n)`, dominated by the sort.
 ## Output
 
 ```ts
-type BreakPoint = {
+{
     x: number;
     y: number;
-};
+}[]
 ```
 
 An array of coordinates where thermal breaks should be placed.
