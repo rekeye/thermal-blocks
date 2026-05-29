@@ -9,8 +9,4 @@ jobs:
         with:
           bun-version: latest
       - run: bun install
-      - uses: willcaul/jest-github-action@v4
-        with:
-          test-command: "bun test"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: bun test
