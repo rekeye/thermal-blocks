@@ -1,7 +1,7 @@
 import type {Segment} from "../types.ts";
 import {scaleToBigInt} from "./bigint-conversion.ts";
 
-function ascending(a: number, b: number){
+function ascending(a: number, b: number) {
     const bigintDiff = scaleToBigInt(a) - scaleToBigInt(b);
     return bigintDiff > 0 ? 1 : bigintDiff < 0 ? -1 : 0;
 }
