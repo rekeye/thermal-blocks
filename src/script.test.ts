@@ -4,8 +4,10 @@ import {INPUT_DATA} from "../data/task-data.ts";
 
 const TEST_EXPECTED_OUTPUT = [
     { x: 390, y: 10 },
+    { x: 372.444, y: 12.45 },
     { x: 450, y: 25 },
-    { x: 500, y: 55 }
+    { x: 499.625, y: 48.125 },
+    { x: 500, y: 55 },
 ]
 
 const EXPECTED_OUTPUT = [
