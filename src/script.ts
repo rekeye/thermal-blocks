@@ -1,10 +1,10 @@
 import type {Block, Rail, Segment} from "./types.ts";
 import {scaleToBigInt} from "./helpers/bigint-conversion.ts";
-import {compareSegments} from "./helpers/sort.ts";
+import {compareRails} from "./helpers/sort.ts";
 
 export function findThermalBlocks(segments: Segment[]) {
     const rails = segments.filter(segment => segment.type === "rail");
-    const sortedRails = rails.sort(compareSegments)
+    const sortedRails = rails.sort(compareRails)
     const blocks: Block[] = [];
 
     let prev: Rail | undefined;

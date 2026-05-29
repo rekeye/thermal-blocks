@@ -6,7 +6,7 @@ function ascending(a: number, b: number) {
     return bigintDiff > 0n ? 1 : bigintDiff < 0n ? -1 : 0;
 }
 
-export function compareSegments(a: Rail, b: Rail) {
+export function compareRails(a: Rail, b: Rail) {
     if (a.y === b.y) {
         return ascending(a.x1, b.x1)
     }
