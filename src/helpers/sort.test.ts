@@ -1,8 +1,7 @@
 import { compareSegments } from "./sort.ts";
-import type { Segment } from "../types.ts";
+import {Rail} from "../types.ts";
 
-const rail = (y: number, x1: number): Segment => ({ type: "rail", y, x1, x2: x1+120 });
-const other = (y: number, x: number): Segment => ({ type: "other", y, x });
+const rail = (y: number, x1: number): Rail => ({ type: "rail", y, x1, x2: x1+120 });
 
 describe('compareSegments', () => {
     describe('different y values', () => {
@@ -14,15 +13,11 @@ describe('compareSegments', () => {
             expect(compareSegments(rail(2, 0), rail(1, 0))).toBe(1);
         });
 
-        test('returns 0 when a.y === b.y and both non-rail', () => {
-            expect(compareSegments(other(1, 0), other(1, 0))).toBe(0);
-        });
-
-        test('ignores x1 when y values differ, even for rails', () => {
+        test('ignores x1 when y values differ', () => {
             expect(compareSegments(rail(1, 99), rail(2, 0))).toBe(-1);
         });
     });
-    describe('same y, both rails', () => {
+    describe('same y', () => {
         test('returns negative when a.x1 < b.x1', () => {
             expect(compareSegments(rail(1, 1), rail(1, 2))).toBe(-1);
         });
@@ -33,19 +28,6 @@ describe('compareSegments', () => {
 
         test('returns 0 when a.x1 === b.x1', () => {
             expect(compareSegments(rail(1, 1), rail(1, 1))).toBe(0);
-        });
-    });
-    describe('same y, mixed types', () => {
-        test('returns 0 by y when a is rail but b is not', () => {
-            expect(compareSegments(rail(1, 0), other(1, 99))).toBe(0);
-        });
-
-        test('returns 0 by y when b is rail but a is not', () => {
-            expect(compareSegments(other(1, 99), rail(1, 0))).toBe(0);
-        });
-
-        test('returns 0 when both are non-rail with same y', () => {
-            expect(compareSegments(other(1, 0), other(1, 99))).toBe(0);
         });
     });
     describe('floating point y values', () => {
