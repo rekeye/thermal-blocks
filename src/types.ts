@@ -1,5 +1,5 @@
-type Rail = { x1: number; x2: number; y: number; type: 'rail' };
-type OtherRailElement = { x: number; y: number; type: 'other' };
+export type Rail = { x1: number; x2: number; y: number; type: 'rail' };
+export type OtherRailElement = { x: number; y: number; type: 'other' };
 
 export type Segment = Rail | OtherRailElement;
 
