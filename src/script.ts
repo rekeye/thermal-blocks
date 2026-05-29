@@ -8,7 +8,7 @@ export function findThermalBlocks(segments: Segment[]) {
     const blocks: Block[] = [];
 
     let prev: Rail | undefined;
-    let consecutiveLength = BigInt(0);
+    let consecutiveLength = 0n;
     for (let i = 0; i < sortedSegments.length - 1; i++) {
         const current = sortedSegments[i];
         const difference = scaleToBigInt(current.x2) - scaleToBigInt(current.x1);
