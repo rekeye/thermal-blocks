@@ -14,7 +14,7 @@ export function findThermalBlocks(segments: Segment[]) {
 
         const x1 = scaleToBigInt(current.x1);
         const x2 = scaleToBigInt(current.x2);
-        if (prev === undefined || current.y !== prev.y || x1 !== x2) {
+        if (prev === undefined || current.y !== prev.y || current.x1 !== prev.x2) {
             prev = current;
             consecutiveLength = x2 - x1;
             continue;
