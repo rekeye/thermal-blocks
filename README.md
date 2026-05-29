@@ -50,6 +50,6 @@ An array of coordinates where thermal breaks should be placed.
 
 ```bash
 bun install   # install dependencies
-bun run       # run the algorithm
+bun solution      # run the algorithm
 bun test      # run tests
 ```
