@@ -4,7 +4,7 @@ Detects where thermal breaks must be placed along horizontal rail runs, based on
 
 ---
 
-## Background
+## Problem
 
 Rail segments are grouped by their `y` coordinate — each `y` represents an independent horizontal line. Within a line, adjacent segments form a continuous chain. When that chain exceeds 500 inches, a thermal break is emitted at the end of the last segment that fit within the limit, and accumulation resets.
 
@@ -17,22 +17,19 @@ type Rail = {
     y: number;
     type: "rail";
 };
-
-type Other = {
+type OtherRailElement = {
     x: number;
     y: number;
     type: "other";
 };
 ```
 
-Objects with `type: "other"` are ignored entirely.
-
-## How It Works
+## Solution
 
 1. **Filter** — keep only `rail` elements
 2. **Sort** — by `y` ascending, then `x1` ascending
 3. **Sweep** — for each `y` group, walk segments in order:
-    - Two segments are considered continuous if `|current.x1 - previous.x2| ≤ 1e-6`
+    - Two segments are considered continuous if `(current.x1 - previous.x2) ≤ 1e-6`
     - Accumulate length; when the total would exceed 500 inches, emit a break at the previous segment's `x2` and reset
     - A gap between segments starts a new chain
 
