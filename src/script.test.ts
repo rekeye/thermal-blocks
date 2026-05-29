@@ -7,6 +7,8 @@ const EXPECTED_OUTPUT = [
     { x: 500, y: 55 }
 ]
 
-test('should respond with correct thermal break array', () => {
-    expect(findThermalBlocks(TEST_INPUT_DATA)).toEqual(EXPECTED_OUTPUT)
+describe('findThermalBlocks integration test', () => {
+    test('should respond with correct thermal break array', () => {
+        expect(findThermalBlocks(TEST_INPUT_DATA)).toEqual(EXPECTED_OUTPUT)
+    })
 })
