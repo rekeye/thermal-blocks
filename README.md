@@ -4,10 +4,6 @@ Detects where thermal breaks must be placed along horizontal rail runs, based on
 
 ---
 
-## Problem
-
-Rail segments are grouped by their `y` coordinate — each `y` represents an independent horizontal line. Within a line, adjacent segments form a continuous chain. When that chain exceeds 500 inches, a thermal break is emitted at the end of the last segment that fit within the limit, and accumulation resets.
-
 ## Input Types
 
 ```ts
