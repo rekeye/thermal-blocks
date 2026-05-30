@@ -26,7 +26,7 @@ type OtherRailElement = {
 2. **Sort** — by `y` ascending, then `x1` ascending
 3. **Sweep** — for each `y` group, walk segments in order:
     - Two segments are considered continuous if `(current.x1 - previous.x2) ≤ 1e-6`
-    - Accumulate length; when the total would exceed 500 inches, emit a break at the previous segment's `x2` and reset
+    - Write the total length, when it exceeds 500 inches, emit a break at the previous segment's `x2` and reset
     - A gap between segments starts a new chain
 
 Overall complexity is `O(n log n)`, dominated by the sort.
