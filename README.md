@@ -1,6 +1,6 @@
 # Thermal Break Detection for Rail Segments
 
-Detects where thermal breaks must be placed along horizontal rail runs, based on a maximum continuous length of 500 inches.
+Given an array of inputs, detects where thermal breaks must be placed along horizontal rail runs, based on a maximum continuous length of 500 inches.
 
 ---
 
